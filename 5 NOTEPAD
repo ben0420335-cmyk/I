@@ -1,0 +1,85 @@
+Public Class Form1
+    Dim str As String
+    Private Sub NewToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewToolStripMenuItem.Click
+        RichTextBox1.Clear()
+        RichTextBox1.BackColor = Color.White
+        RichTextBox1.ForeColor = Color.Black
+    End Sub
+
+    Private Sub OpenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OpenToolStripMenuItem.Click
+        OpenFileDialog1.ShowDialog()
+        RichTextBox1.LoadFile(OpenFileDialog1.FileName, RichTextBoxStreamType.PlainText)
+    End Sub
+
+    Private Sub SaveToolStripMenuItem_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles SaveToolStripMenuItem.Click
+        SaveFileDialog1.ShowDialog()
+        RichTextBox1.SaveFile(SaveFileDialog1.FileName, RichTextBoxStreamType.PlainText)
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ExitToolStripMenuItem.Click
+        End
+    End Sub
+
+    Private Sub CutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CutToolStripMenuItem.Click
+        str = RichTextBox1.SelectedText
+        RichTextBox1.SelectedText = ""
+        RichTextBox1.Cut()
+    End Sub
+
+    Private Sub CopyToolStripMenuItem_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles CopyToolStripMenuItem.Click
+        str = RichTextBox1.SelectedText
+    End Sub
+
+    Private Sub PasteToolStripMenuItem_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles PasteToolStripMenuItem.Click
+        RichTextBox1.Text += str
+    End Sub
+
+    Private Sub UndoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles UndoToolStripMenuItem.Click
+        RichTextBox1.Undo()
+    End Sub
+
+    Private Sub RedoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RedoToolStripMenuItem.Click
+        RichTextBox1.Redo()
+    End Sub
+
+    Private Sub SelectAllToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SelectAllToolStripMenuItem.Click
+        RichTextBox1.SelectAll()
+    End Sub
+
+    Private Sub FindToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FindToolStripMenuItem.Click
+        Dim fs As String
+        str = InputBox("Enter the string to search:")
+        fs = RichTextBox1.Find(str, 0, Len(RichTextBox1.Text), 1)
+        If fs >= 0 Then
+            MsgBox("String is Found")
+        Else
+            MsgBox("String is not Found")
+        End If
+    End Sub
+
+    Private Sub ReplaceToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ReplaceToolStripMenuItem.Click
+        str = InputBox("Enter the replace string:")
+        RichTextBox1.SelectedText = str
+    End Sub
+
+    Private Sub DeleteToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DeleteToolStripMenuItem.Click
+        RichTextBox1.Clear()
+    End Sub
+
+    Private Sub FontToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FontToolStripMenuItem1.Click
+        FontDialog1.ShowDialog()
+        RichTextBox1.Font = FontDialog1.Font
+    End Sub
+
+    Private Sub BackcolorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BackcolorToolStripMenuItem.Click
+        ColorDialog1.ShowDialog()
+        RichTextBox1.BackColor = ColorDialog1.Color
+    End Sub
+
+    Private Sub ForecolorToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ForecolorToolStripMenuItem.Click
+        ColorDialog1.ShowDialog()
+        RichTextBox1.ForeColor = ColorDialog1.Color
+
+    End Sub
+End Class
+
