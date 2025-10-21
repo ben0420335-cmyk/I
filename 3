@@ -1,0 +1,43 @@
+Public Class Form1
+    Dim grade As String
+    Private Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
+        TextBox4.Text = Val(TextBox1.Text) + Val(TextBox2.Text) + Val(TextBox3.Text)
+        If TextBox1.Text >= 40 And TextBox2.Text >= 40 And TextBox3.Text >= 40 Then
+            TextBox5.Text = "Pass"
+        Else
+            TextBox5.Text = "Fail"
+        End If
+        TextBox7.Text = TextBox4.Text / 3
+        If TextBox7.Text >= 90 Then
+            grade = "O"
+        ElseIf TextBox7.Text >= 80 Then
+            grade = "A"
+        ElseIf TextBox7.Text >= 70 Then
+            grade = "B"
+        ElseIf TextBox7.Text >= 60 Then
+            grade = "C"
+        ElseIf TextBox7.Text >= 50 Then
+            grade = "D"
+        ElseIf TextBox7.Text >= 40 Then
+            grade = "E"
+        Else
+            grade = "FAIL"
+        End If
+        TextBox6.Text = grade
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        TextBox1.Text = " "
+        TextBox2.Text = " "
+        TextBox3.Text = " "
+        TextBox4.Text = " "
+        TextBox5.Text = " "
+        TextBox6.Text = " "
+        TextBox7.Text = " "
+    End Sub
+
+    Private Sub Button3_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button3.Click
+        End
+    End Sub
+End Class
+
