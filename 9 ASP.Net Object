@@ -1,0 +1,50 @@
+
+PublicClass_Default
+InheritsSystem.Web.UI.Page
+
+DimselectedobjectAsString
+Dim properties AsString
+ProtectedSub Button1_Click(ByVal sender AsObject, ByVal e AsEventArgs) Handles Button1.Click
+selectedobject = DropDownList1.SelectedValue
+        properties = " "
+SelectCaseselectedobject
+Case"Request"
+                properties = DisplayRequestProperties()
+Case"Response"
+                properties = DisplayResponseProperties()
+Case"Session"
+                properties = DisplaySessionProperties()
+Case"Application"
+                properties = DisplayApplicationProperties()
+EndSelect
+
+        Label2.Text = properties
+
+EndSub
+
+PrivateFunctionDisplayRequestProperties() AsString
+
+'properties += "Request URL:" + Request.Url + "<br/>"
+        properties += "Request Method:" + Request.HttpMethod + "<br/>"
+        properties += "request User Host address:" + Request.UserHostAddress + "<br/>"
+Return properties
+EndFunction
+
+PrivateFunctionDisplayResponseProperties() AsString
+        properties += "Response Status Code:" + Str(Response.StatusCode) + "<br/>"
+        properties += "Response Status description:" + Response.StatusDescription + "<br/>"
+Return properties
+EndFunction
+
+PrivateFunctionDisplaySessionProperties() AsString
+        properties += "Session ID:" + Session.SessionID + "<br/>"
+        properties += "Session Timeout:" + Str(Session.Timeout) + "<br/>"
+Return properties
+EndFunction
+
+PrivateFunctionDisplayApplicationProperties() AsString
+        properties += "Application Path:" + Request.ApplicationPath + "<br/>"
+Return properties
+EndFunction
+
+EndClass
