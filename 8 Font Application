@@ -1,0 +1,11 @@
+Public Class _Default
+    Inherits System.Web.UI.Page
+
+    Dim selectedfont As String
+
+    Protected Sub DropDownList1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles DropDownList1.SelectedIndexChanged
+        selectedfont = DropDownList1.SelectedValue
+        Label2.Font.Name = selectedfont
+        TextBox1.Font.Name = selectedfont
+    End Sub
+End Class
