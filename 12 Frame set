@@ -1,0 +1,47 @@
+HTML
+<%@ Page Language="VB" AutoEventWireup="true" CodeFile="LeftMenu.aspx.vb" Inherits="LeftMenu" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title>Left Menu</title>
+</head>
+<body style="background-color: lightblue; text-align: center;">
+<h2>Navigation Menu</h2>
+<p>Link 1</p>
+<p>Link 2</p>
+
+</body>
+</html>
+MainContent.aspx
+HTML
+<%@ Page Language="VB" AutoEventWireup="true" CodeFile="MainContent.aspx.vb" Inherits="MainContent" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<title>Main Content</title>
+</head>
+<body style="background-color: lightgreen; padding: 20px;">
+<h1>Welcome to the Simple Frameset Site!</h1>
+<p>This is the main area of the website.</p>
+</body>
+</html>
+
+
+(FramesetPage.aspx) set as start page
+HTML
+<%@ Page Language="VB" AutoEventWireup="false" CodeFile="FramesetPage.aspx.vb" Inherits="FramesetPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>My Simple Frameset Site</title>
+</head>
+<frameset cols="25%, *">
+<frame src="LeftMenu.aspx" name="leftFrame" noresize="noresize" />
+<frame src="MainContent.aspx" name="mainFrame" />
+<noframes>
+<body>
+<p>Your browser doesn't support frames.</p>
+</body>
+</noframes>
