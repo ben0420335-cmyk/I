@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Advertisements>
+  <Ad>
+    <ImageUrl>~/Images/rose.jfif</ImageUrl>
+    <NavigateUrl>https://www.gmail.com</NavigateUrl>
+    <Impressions>50</Impressions>
+    <Keyword>Example</Keyword>
+  </Ad>
+  <Ad>
+    <ImageUrl>~/rose1.jpg</ImageUrl>
+    <NavigateUrl>https://www.w3schools.com</NavigateUrl>
+    <Impressions>50</Impressions>
+    <Keyword>Example</Keyword>
+  </Ad>
+</Advertisements>
